@@ -38,28 +38,49 @@ struct node* deleteNode(struct node** root, int data) {
         (*root)->lptr = deleteNode(&(*root)->lptr, data);
     }
     else if((*root)->info<data) {
-        ((*root)->rptr)=deleteNode(&(*root)->rptr, data);
+        (*root)->rptr=deleteNode(&(*root)->rptr, data);
     }
     else {
-        
+        // if((*root)->lptr==NULL && (*root)->rptr==NULL) {
+        //     free(*root);
+        //     return NULL;
+        // }
+        if((*root)->lptr==NULL) {
+            struct node* save=(*root)->rptr;
+            free(*root);
+            return save;
+        }
+        else if ((*root)->rptr==NULL) {
+            struct node* save=(*root)->lptr;
+            free(*root);
+            return save;
+        }
+        else {
+            struct node* temp=(*root)->rptr;
+            while(temp->lptr!=NULL) {
+                temp=temp->lptr;
+            }
+            (*root)->info=temp->info;
+            (*root)->rptr=deleteNode(&(*root)->rptr, temp->info);
+        }
     }
+
+    return *root;
 }
 
 
 
-void searchNode(struct node** root, int data) {
+int searchNode(struct node** root, int data) {
     if (*root == NULL || (*root)->info == data) {
-        printf("Node with data %d found.\n", data);
-        return;
+        return 1;
     }
     if (data < (*root)->info) {
         return searchNode(&((*root)->lptr), data);
     }
     else if (data > (*root)->info) {
-        searchNode(&((*root)->rptr), data);
+        return searchNode(&((*root)->rptr), data);
     }
-    printf("Node with data %d not found.\n", data);
-    return;
+    return 0;
 }
 
 
@@ -89,6 +110,7 @@ void postorder(struct node* root) {
     postorder(root->rptr);
     printf("%d ", root->info);
 }
+
 
 int main() {
 
@@ -130,12 +152,15 @@ int main() {
                 printf("Enter data to delete: ");
                 scanf("%d", &t);
                 deleteNode(&bst, t);
-                printf("Delete operation not implemented yet.\n");
             break;
             case 3:
                 printf("Enter data to search: ");
                 scanf("%d", &t);
-                searchNode(&bst, t);
+                if(searchNode(&bst, t)) {
+                    printf("Node %d found.\n", t);
+                } else {
+                    printf("Node %d not found.\n", t);
+                }
             break;
             case 4:
                 printf("\nPreorder traversal: ");
@@ -156,7 +181,8 @@ int main() {
         if(c == -1) {
             break;
         }
-        
-
     }
+
+    free(bst);
+    return 0;
 }
