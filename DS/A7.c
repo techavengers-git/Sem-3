@@ -34,10 +34,10 @@ struct node* leftRotation(struct node** root) {
     struct node* newRoot = (*root)->rptr;
     (*root)->rptr = newRoot->lptr;
     newRoot->lptr = *root;
-    (*root)->r = findHeight((*root)->rptr)-1;
-    (*root)->l = findHeight((*root)->lptr)-1;
-    newRoot->l = findHeight(newRoot->lptr)-1;
-    newRoot->r = findHeight(newRoot->rptr)-1;
+    (*root)->r = findHeight((*root)->rptr);
+    (*root)->l = findHeight((*root)->lptr);
+    newRoot->l = findHeight(newRoot->lptr);
+    newRoot->r = findHeight(newRoot->rptr);
     return newRoot;
 }
 
@@ -45,10 +45,10 @@ struct node* rightRotation(struct node** root) {
     struct node* newRoot = (*root)->lptr;
     (*root)->lptr = newRoot->rptr;
     newRoot->rptr = *root;
-    (*root)->r = findHeight((*root)->rptr)-1;
-    (*root)->l = findHeight((*root)->lptr)-1;
-    newRoot->l = findHeight(newRoot->lptr)-1;
-    newRoot->r = findHeight(newRoot->rptr)-1;
+    (*root)->r = findHeight((*root)->rptr);
+    (*root)->l = findHeight((*root)->lptr);
+    newRoot->l = findHeight(newRoot->lptr);
+    newRoot->r = findHeight(newRoot->rptr);
     return newRoot;
 }
 
@@ -59,12 +59,13 @@ struct node* insertNode(struct node** root, int data) {
     }
     if (data < (*root)->info) {
         (*root)->lptr = insertNode(&((*root)->lptr), data);
-        (*root)->l = findHeight((*root)->lptr)-1;
-        (*root)->r = findHeight((*root)->rptr)-1;
-    } else if (data > (*root)->info) {
+        (*root)->l = findHeight((*root)->lptr);
+        (*root)->r = findHeight((*root)->rptr);
+    }
+    else if (data > (*root)->info) {
         (*root)->rptr = insertNode(&((*root)->rptr), data);
-        (*root)->r = findHeight((*root)->rptr)-1;
-        (*root)->l = findHeight((*root)->lptr)-1;
+        (*root)->r = findHeight((*root)->rptr);
+        (*root)->l = findHeight((*root)->lptr);
     }
 
     if((*root)->l - (*root)->r>1 || (*root)->r - (*root)->l>1) {
@@ -95,10 +96,10 @@ struct node* insertNode(struct node** root, int data) {
 
 void preorder(struct node* root) {
     if (root == NULL) {
-        printf("-1 ");
+        printf("-1, ");
         return;
     }
-    printf("%d ", root->info);
+    printf("%d, ", root->info);
     preorder(root->lptr);
     preorder(root->rptr);
 }
@@ -114,12 +115,15 @@ int main() {
         if (n == -1) {
             break;
         } else {
-            insertNode(&avl, n);
+            avl = insertNode(&avl, n);
         }
     }
 
+    printf("\n");
+    printf("AVL Tree Preorder Traversal: \n");
     preorder(avl);
+    printf("\b\b \n");
 
-    free(avl);
+    // free(avl);
     return 0;
 }
