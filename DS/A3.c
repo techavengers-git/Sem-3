@@ -52,6 +52,7 @@ int main() {
                 l=0;
             }
             else {
+                l=0;
                 continue;
             }
         }
