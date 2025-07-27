@@ -8,46 +8,57 @@ struct node{
     struct node* rptr;
 };
 
-struct node* createNode(int value) {
+struct node* createNode(int data) {
     struct node* newNode = (struct node*)malloc(sizeof(struct node));
-    newNode->info = value;
+    newNode->info = data;
     newNode->lptr = NULL;
     newNode->rptr = NULL;
     return newNode;
 }
 
-struct node* insertNode(struct node** root, int value) {
+struct node* insertNode(struct node** root, int data) {
     if (*root == NULL) {
-        *root = createNode(value);
+        *root = createNode(data);
         return *root;
     }
-    if (value < (*root)->info) {
-        (*root)->lptr = insertNode(&((*root)->lptr), value);
-    } else if (value > (*root)->info) {
-        (*root)->rptr = insertNode(&((*root)->rptr), value);
+    if (data < (*root)->info) {
+        (*root)->lptr = insertNode(&((*root)->lptr), data);
+    } else if (data > (*root)->info) {
+        (*root)->rptr = insertNode(&((*root)->rptr), data);
     }
     return *root;
 }
 
 
-void deleteNode(struct node** root, int value) {
-
+struct node* deleteNode(struct node** root, int data) {
+    if(*root==NULL) {
+        return NULL;
+    }
+    if((*root)->info>data) {
+        (*root)->lptr = deleteNode(&(*root)->lptr, data);
+    }
+    else if((*root)->info<data) {
+        ((*root)->rptr)=deleteNode(&(*root)->rptr, data);
+    }
+    else {
+        
+    }
 }
 
 
 
-void searchNode(struct node** root, int value) {
-    if (*root == NULL || (*root)->info == value) {
-        printf("Node with value %d found.\n", value);
+void searchNode(struct node** root, int data) {
+    if (*root == NULL || (*root)->info == data) {
+        printf("Node with data %d found.\n", data);
         return;
     }
-    if (value < (*root)->info) {
-        return searchNode(&((*root)->lptr), value);
+    if (data < (*root)->info) {
+        return searchNode(&((*root)->lptr), data);
     }
-    else if (value > (*root)->info) {
-        searchNode(&((*root)->rptr), value);
+    else if (data > (*root)->info) {
+        searchNode(&((*root)->rptr), data);
     }
-    printf("Node with value %d not found.\n", value);
+    printf("Node with data %d not found.\n", data);
     return;
 }
 
@@ -85,7 +96,7 @@ int main() {
 
     int n;
     while(1) {
-        printf("Enter value : ");
+        printf("Enter data : ");
         scanf("%d", &n);
         if (n == -1) {
             break;
@@ -111,15 +122,18 @@ int main() {
 
         switch(c) {
             case 1:
-                printf("Enter value to insert: ");
+                printf("Enter data to insert: ");
                 scanf("%d", &t);
                 insertNode(&bst, t);
             break;
             case 2:
+                printf("Enter data to delete: ");
+                scanf("%d", &t);
+                deleteNode(&bst, t);
                 printf("Delete operation not implemented yet.\n");
             break;
             case 3:
-                printf("Enter value to search: ");
+                printf("Enter data to search: ");
                 scanf("%d", &t);
                 searchNode(&bst, t);
             break;
