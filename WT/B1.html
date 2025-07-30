@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            padding: 5vh;
+            background-color:rgb(124, 120, 120);
+            border-radius: 1.09rem;
+        }
+
+        .name{
+            height: 4vh;
+            width: 15vh;
+            position: relative;
+            left: 0vh;
+            top: 0vh;
+        }
+
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <p>First fill all fields.</p>
+    <div class="box">
+        <input type="text" placeholder="UserName" class="Uname">
+        <br><br>
+        <input type="password" placeholder="password" class="paswd">
+        <br><br>
+        <button class="name">Click Me</button>
+    </div>
+
+    <script>
+        $("p").hide();
+
+        $(document).ready(function () {
+            $("button").hover(function () {
+                var btn = document.querySelector(".name");
+                if($('.Uname').val() == "" || $('.paswd').val() == ""){
+                    $("p").fadeIn(100);
+                    btn.style.left = Math.random() * 85 + "vh";
+                    btn.style.top = Math.random() * 90 + "vh";
+                } else {
+                    $("p").fadeOut(100);
+                    btn.style.left =0 + "vh";
+                    btn.style.top = 0+ "vh";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

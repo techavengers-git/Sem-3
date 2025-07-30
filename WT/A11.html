@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="myELe">Welcome to WT/A1.html (class - myELe)</h1>
+    <h1 class="myELe1">Welcome to WT/A1.html (class - myELe1)</h1>
+    <h1 class="myELe2">Welcome to WT/A1.html (class - myELe2)</h1>
+    <br><br>
+    <p class="myELe">This is a simple HTML document with jQuery included. (class - myELe)</p>
+    <p class="myELe1">This is a simple HTML document with jQuery included. (class - myELe1)</p>
+    <p class="myELe2">This is a simple HTML document with jQuery included. (class - myELe2)</p>
+    <br><br>
+    <span class="myELe">This is a simple HTML document with jQuery included with span. (class - myELe)</span> <br>
+    <span class="myELe1">This is a simple HTML document with jQuery included with span. (class - myELe1)</span> <br>
+    <span class="myELe2">This is a simple HTML document with jQuery included with span. (class - myELe2)</span> <br>
+    <br><br>
+    <button id="hide">Click to hide</button>
+    <button id="show">Click to show</button>
+
+    <script>
+        $(document).ready(function() {
+            $('body *').click(function() {
+                $(this).fadeOut();
+            })
+        })
+    </script>
+</body>
+
+</html>

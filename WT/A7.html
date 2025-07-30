@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        input {
+            margin: 5px;
+            padding: 10px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text1">
+    <input type="text2">
+    <input type="text3">
+
+    <script>
+        $(document).ready(function () {
+            $('input').hover(function () {
+                $(this).css('background-color', 'red');
+            }),
+            $('input').mouseleave(function () {
+                $(this).css('background-color', '');
+            })
+        })
+    </script>
+</body>
+
+</html>

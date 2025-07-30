@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="myELe">Welcome to WT/A1.html (class - myELe)</h1>
+    <h1 class="myELe1">Welcome to WT/A1.html (class - myELe1)</h1>
+    <h1 class="myELe2">Welcome to WT/A1.html (class - myELe2)</h1>
+    <br><br>
+    <p class="myELe">This is a simple HTML document with jQuery included. (class - myELe)</p>
+    <p class="myELe1">This is a simple HTML document with jQuery included. (class - myELe1)</p>
+    <p class="myELe2">This is a simple HTML document with jQuery included. (class - myELe2)</p>
+    <br><br>
+    <span class="myELe">This is a simple HTML document with jQuery included with span. (class - myELe)</span> <br>
+    <span class="myELe1">This is a simple HTML document with jQuery included with span. (class - myELe1)</span> <br>
+    <span class="myELe2">This is a simple HTML document with jQuery included with span. (class - myELe2)</span> <br>
+    <br><br>
+    <button id="hide">Click to slideup</button>
+    <button id="show">Click to slidedown</button>
+    <button id="toggle">Click to slidetoggle</button>
+    <br><br>
+    <img id="img" src="https://i.pinimg.com/736x/69/c1/f0/69c1f075d8611a6a266e588e69ce2cbc.jpg" alt="">
+
+    <script>
+        $(document).ready(function() {
+            $('#hide').click(function() {
+                $('#img').slideUp();
+            })
+            $('#show').click(function() {
+                $('#img').slideDown();
+            })
+            $('#toggle').click(function() {
+                $('#img').fadeToggle();
+            })
+
+        })
+    </script>
+</body>
+
+</html>
