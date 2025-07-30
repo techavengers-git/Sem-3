@@ -6,23 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        th{
+            width: 25vh;
+        }
+    </style>
 </head>
 
 <body>
     <input type="text" id="inputText" placeholder="Type something...">
 
     <br><br>
-    <button id="write">Click to </button>
+    <button id="write">Click me</button>
     <table border="1">
-        <tr>
-            <td>Hello World!</td>
-        </tr>
+        <thead>
+            <th>Name</th>
+            <th>Change</th>
+        </thead>
+        <tbody>
+        </tbody>
     </table>
     <script>
         $(document).ready(function() {
             $('#write').click(function() {
                 var text=$('#inputText').val();
-                $('table').append("<tr><td>" + text + "</td></tr>");
+                $('tbody').append("<tr><td>" + text + "</td><td><button class='change'>Change</button></td></tr>");
+                $('#inputText').val("");
             })
         })
     </script>
