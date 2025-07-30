@@ -42,18 +42,25 @@
         $("p").hide();
 
         $(document).ready(function () {
+            var btn = document.querySelector(".name");
             $("button").hover(function () {
-                var btn = document.querySelector(".name");
-                if($('.Uname').val() == "" || $('.paswd').val() == ""){
+                if($('.Uname').val() == "" && $('.paswd').val() == ""){
                     $("p").fadeIn(100);
                     btn.style.left = Math.random() * 85 + "vh";
-                    btn.style.top = Math.random() * 90 + "vh";
+                    btn.style.top = Math.random() * 50 + "vh";
                 } else {
-                    $("p").fadeOut(100);
                     btn.style.left =0 + "vh";
                     btn.style.top = 0+ "vh";
                 }
             });
+            setInterval(function () {
+                var btn = document.querySelector(".name");
+                if($('.Uname').val() != "" || $('.paswd').val() != ""){
+                    $("p").fadeOut(100);
+                    btn.style.left = 0 + "vh";
+                    btn.style.top = 0 + "vh";
+                }
+            }, 0);
         });
     </script>
 </body>
