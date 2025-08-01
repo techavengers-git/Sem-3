@@ -28,6 +28,18 @@ void insertNode(struct node** head, int data) {
     save->link = newNode;
 }
 
+struct node* reverseList(struct node* head) {
+    struct node* prev = NULL;
+    struct node* curr = head;
+    struct node* next = NULL;
+    while (curr != NULL) {
+        next = curr->link;
+        curr->link = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
 
 struct node* swapNode(struct node** head, int k, int len) {
     if(k==1) {
@@ -36,36 +48,43 @@ struct node* swapNode(struct node** head, int k, int len) {
         while((temp->link)->link!=NULL) {
             temp = temp->link;
         }
-        struct node* temp1 = *head;
-        *head = temp->link;
-        temp->link = temp1->link;
-        temp->link=temp1;
-        temp1->link = NULL;
-        return *head;
+        struct node* temp2 = temp->link;
+        temp->link = NULL;
+        (*head)->link=reverseList((*head)->link);
+        temp=*head;
+        while(temp->link!=NULL) {
+            temp = temp->link;
+        }
+        temp->link = temp2;
+
+        return reverseList(*head);
     }
 
-    int l=len-k-1;
-    k-=2;
+    if(k>=len/2+1) {
+        k = len - k + 1;
+    }
 
     struct node* save=*head;
     struct node* save1=*head;
-    while(l--) {
-
-        while(k-- && k>0) {
-            save = save->link;
-        }
-
-        save1=save1->link;
+    for(int i=1; i<k-1; i++) {
+        save = save->link;
+    }
+    for(int i=1; i<len-k; i++) {
+        save1 = save1->link;
     }
 
     struct node* temp = save->link;
     struct node* temp1 = save1->link;
     struct node* temp2 = temp1->link;
 
-    temp1->link=(save->link)->link;
+    if(k==(len*1.0)/2) {
+        temp1->link=save->link;
+    }
+    else {
+        temp1->link=(save->link)->link;
+        save1->link = temp;
+    }
 
-
-    save1->link = temp;
     save->link = temp1;
     temp->link = temp2;
 
