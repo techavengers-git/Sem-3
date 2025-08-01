@@ -36,12 +36,13 @@ void insertFirst(struct node** head, int data) {
 }
 
 
-struct node* reverseList(struct node** head, int k) {
+struct node* reverseList(struct node** head, int k, int len) {
     struct node* save=*head;
     struct node* ans=NULL;
     struct node* ans1=NULL;
+    int q=len/k;
 
-    while(save->link!=NULL) {
+    while(save->link!=NULL && q--) {
         struct node* temp=NULL;
         int count=0;
 
@@ -53,17 +54,20 @@ struct node* reverseList(struct node** head, int k) {
 
         if (ans == NULL) {
             ans=temp;
+            ans1=temp;
         }
-        ans1=temp;
+        else {
+            ans1->link = temp;
+        }
         while(ans1->link!=NULL) {
             ans1=ans1->link;
         }
-        ans->link = ans1;
         
         if(count ==k) {
             count = 0;
         }
     }
+    ans1->link = save;
 
     return ans;
 }
@@ -80,6 +84,7 @@ void displayList(struct node* head) {
 
 int main() {
     struct node* list=NULL;
+    int len=0;
 
     while(1) {
         int n;
@@ -88,6 +93,7 @@ int main() {
         if (n == -1) {
             break;
         }
+        len++;
         insertNode(&list, n);
     }
 
@@ -95,7 +101,7 @@ int main() {
     printf("Enter k : ");
     scanf("%d", &k);
 
-    list = reverseList(&list, k);
+    list = reverseList(&list, k, len);
 
     displayList(list);
     return 0;
