@@ -48,6 +48,19 @@
       background-color: #2f445765;
       color: white;
     }
+
+    .profile-card {
+      animation: op 0.7s ease-in-out;
+    }
+    
+    @keyframes op {
+      from {
+        opacity: 0; 
+      }
+      To {
+        opacity: 1; 
+      }
+    }
   </style>
 </head>
 
@@ -55,7 +68,7 @@
 
   <nav class="navbar bg-transparent px-4">
     <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="logo.svg" alt="Logo" class="logo me-2" /> Floric Ride
+      <img src="logo.svg" alt="Logo" class="logo me-2" /> Rapid Ride
     </a>
     <div class="ms-auto">
       <a href="./index.html" class="me-4 text-decoration-none text-dark">Home</a>
