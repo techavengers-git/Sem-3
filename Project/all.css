@@ -1,7 +1,8 @@
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ffe6e6, #e6f2ff);
+    background: linear-gradient(135deg, #d1b1b1d8, #bacce1cc);
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .logo {
@@ -11,5 +12,13 @@ body {
 }
 
 .logo:hover {
-    transform: rotate(30deg);
+    transform: rotate(20deg);
+}
+
+input {
+    transition: all 0.5s;
+}
+
+input:focus {
+    border-radius: 1vh;
 }

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile - Floric Ride</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./all.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #a18cd1, #fbc2eb);
-      padding: 40px 20px;
     }
+
     .profile-card {
       background: #ffffffdd;
       border-radius: 20px;
@@ -20,35 +22,54 @@
       margin: auto;
       text-align: center;
     }
+
     .profile-img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
-      border: 4px solid #7d5fff;
+      border: 4px solid #5c92c265;
     }
+
     .user-info {
       margin-bottom: 30px;
     }
+
     .user-info h4 {
       margin: 5px 0;
     }
+
     .table-striped tbody tr:nth-of-type(odd) {
       background-color: #f8f9fa;
     }
+
     .table th {
-      background-color: #7d5fff;
+      background-color: #2f445765;
       color: white;
     }
   </style>
 </head>
+
 <body>
+
+  <nav class="navbar bg-transparent px-4">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="logo.svg" alt="Logo" class="logo me-2" /> Floric Ride
+    </a>
+    <div class="ms-auto">
+      <a href="./index.html" class="me-4 text-decoration-none text-dark">Home</a>
+      <a href="./booking.html" class="me-4 text-decoration-none text-dark">Ride</a>
+      <a href="./map.html" class="me-4 text-decoration-none text-dark">Map</a>
+      <a href="./profile.html" class="text-decoration-none text-dark">Profile</a>
+    </div>
+  </nav>
+
   <div class="profile-card">
-    <img src="../" class="profile-img" alt="User Photo">
+    <img src="../download.jpg" class="profile-img" alt="User Photo">
     <div class="user-info">
-      <h3>Chinki Minki</h3>
-      <h4>Username: chinki_25</h4>
+      <h3>Sinha Milan</h3>
+      <h4>Username: sinha_18</h4>
       <p>📱 +91 9876543210</p>
     </div>
 
@@ -85,4 +106,5 @@
     </table>
   </div>
 </body>
+
 </html>
