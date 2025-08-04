@@ -1,0 +1,15 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe6e6, #e6f2ff);
+    overflow-x: hidden;
+}
+
+.logo {
+
+    animation: spin 5s linear infinite;
+    transition: all 0.5s;
+}
+
+.logo:hover {
+    transform: rotate(30deg);
+}
