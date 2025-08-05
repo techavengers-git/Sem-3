@@ -1,9 +1,11 @@
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #d1b1b1d8, #bacce1cc);
     overflow-x: hidden;
     height: 100vh;
     font-family: cursive;
+    background: url(../pexels-steven-arenas-14151-314374.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .logo {
