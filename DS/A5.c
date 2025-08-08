@@ -41,10 +41,6 @@ struct node* deleteNode(struct node** root, int data) {
         (*root)->rptr=deleteNode(&(*root)->rptr, data);
     }
     else {
-        // if((*root)->lptr==NULL && (*root)->rptr==NULL) {
-        //     free(*root);
-        //     return NULL;
-        // }
         if((*root)->lptr==NULL) {
             struct node* save=(*root)->rptr;
             free(*root);
