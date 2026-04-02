@@ -140,36 +140,36 @@ int main() {
 
         switch(c) {
             case 1:
-                printf("Enter data to insert: ");
+                printf("Enter data to insert in binary tree: ");
                 scanf("%d", &t);
                 insertNode(&bst, t);
             break;
             case 2:
-                printf("Enter data to delete: ");
+                printf("Enter data to delete in binary tree: ");
                 scanf("%d", &t);
                 deleteNode(&bst, t);
             break;
             case 3:
-                printf("Enter data to search: ");
+                printf("Enter data to search in binary tree: ");
                 scanf("%d", &t);
                 if(searchNode(&bst, t)) {
-                    printf("Node %d found.\n", t);
+                    printf("Node %d found in binary tree.\n", t);
                 } else {
-                    printf("Node %d not found.\n", t);
+                    printf("Node %d not found in binary tree.\n", t);
                 }
             break;
             case 4:
-                printf("\nPreorder traversal: ");
+                printf("\nPreorder traversal of this binary tree: ");
                 preorder(bst);
                 printf("\n");
             break;
             case 5:
-                printf("\nInorder traversal: ");
+                printf("\nInorder traversal of this binary tree: ");
                 inorder(bst);
                 printf("\n");
             break;
             case 6:
-                printf("\nPostorder traversal: ");
+                printf("\nPostorder traversal of this binary tree: ");
                 postorder(bst);
                 printf("\n");
             break;
